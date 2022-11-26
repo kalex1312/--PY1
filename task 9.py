@@ -6,7 +6,7 @@ increase = 0.03  # рост цен
 money_capital = 0  # количество денег, чтобы прожить 10 месяцев
 
 
-for i in range(0, months, 1):
+for i in range(0, months):
     delta = spend - salary
     spend *= 1 + increase
 
