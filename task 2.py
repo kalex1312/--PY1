@@ -1,7 +1,7 @@
 def get_count_char(str_):
       # TODO посчитать количество каждой буквы в строке в аргументе str_
 
-    let_dict = dict()
+    let_dict = {}
     str_ = str_.lower()
 
     for letter in str_:
