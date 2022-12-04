@@ -1,16 +1,14 @@
 def get_count_char(str_):
       # TODO посчитать количество каждой буквы в строке в аргументе str_
 
-      let_dict = dict()
+    let_dict = dict()
+    str_ = str_.lower()
 
-      for i in range(0, len(str_)):
-          letter = str_[i].lower()
-          if letter.isalpha():
-              if letter in let_dict:
-                  let_dict[letter] += 1
-              else:
-                  let_dict[letter] = 1
-      return let_dict
+    for letter in str_:
+
+        if letter.isalpha():
+            let_dict[letter] = let_dict.get(letter, 0) + 1
+    return let_dict
 
 main_str = """
 У лукоморья дуб зелёный;
