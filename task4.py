@@ -2,23 +2,16 @@ import json
 
 INPUT_FILE = "input.csv"
 
-
 def csv_to_list_dict(file_csv) -> list[dict]:
     ...  # TODO реализовать конвертер из csv в json
 
     list_dict = []
-    f = open(file_csv, 'r', encoding='utf8')
-    list_ = f.readlines()  # считывает все строки в список и возвращает список
-    f.close()
-
-    title = list_[0].rstrip().split(',')
-
-    for line in list_[1:]:
-        dict_ = {}
-        for i, str in enumerate(line.rstrip().split(',')):
-            dict_[title[i]] = str
-        list_dict.append(dict_)
-
+    with open(file_csv, 'r', encoding='utf8') as f:
+        for i, line in enumerate(f):
+            if i == 0:
+                title = line.rstrip().split(',')
+            else:
+                list_dict.append(dict(zip(title, line.rstrip().split(','))))
 
     return list_dict
 
