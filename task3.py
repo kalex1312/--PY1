@@ -2,16 +2,13 @@ OUTPUT_FILE = "output.csv"
 
 
 # TODO реализовать функцию to_csv_file
-def to_csv_file(filename, headers, rows, delimiter=",", new_line="\n"):
-    f = open(filename, 'w', encoding='utf8')  # открываем файл на запись
-    f.write(delimiter.join(headers) + new_line)  # запись заголовка
 
-    f.writelines(delimiter.join(current_list) + new_line for current_list in rows)  # запись данных построчно
-
-    f.close()
+def to_csv_file(filename, headers, rows, delimiter=',', new_line='\n'):
+    with open(filename, 'w') as f:
+        f.write(delimiter.join(headers)+new_line)
+        f.writelines(delimiter.join(current_list) + new_line for current_list in rows)
 
     return
-
 
 headers_list = ['longitude', 'latitude', 'housing_median_age', 'total_rooms', 'total_bedrooms', 'population',
                 'households', 'median_income', 'median_house_value']
@@ -32,6 +29,10 @@ to_csv_file(OUTPUT_FILE, headers_list, data, ",", "\n")
 with open(OUTPUT_FILE) as output_f:
     for line in output_f:
         print(line, end="")
+
+
+
+
 
 
 
