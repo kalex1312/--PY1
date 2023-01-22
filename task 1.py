@@ -1,6 +1,5 @@
 import doctest
 
-
 class Room:
     def __init__(self, side_a: float, side_b: float, side_c: float):
         """
@@ -74,12 +73,9 @@ class Room:
 
         return "Комната отличная" if self.room_volume >= etalon else "Комната небольшая, но уютная"
 
-if __name__ == "__main__":
-    doctest.testmod()  # тестирование примеров, которые находятся в документации
-
     pass
 
-import doctest
+
 from datetime import date
 
 class Car:
@@ -136,13 +132,8 @@ class Car:
         ...
         return ...
 
-if __name__ == "__main__":
-    doctest.testmod()  # тестирование примеров, которые находятся в документации
-
-
     pass
 
-import doctest
 
 class Porridge:
     def __init__(self, groats: str, liquid: str, cook_time: float):
