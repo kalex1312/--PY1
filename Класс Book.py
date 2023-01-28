@@ -1,4 +1,5 @@
 
+
 BOOKS_DATABASE = [
     {
         "id": 1,
@@ -16,9 +17,28 @@ BOOKS_DATABASE = [
 class Book:
     def __init__(self, id: int, name: str, pages: int):
 
-        self.id =id
+        """
+        Создание и подготовка к работе объекта "Книга"
+        :param id_: Идентификатор книги
+        :param name_: Название книги
+        :param pages_: Количество страниц в книге
+
+        """
+
+        if not isinstance(id, (int)):
+            raise TypeError("Идентификатор книги должен быть типа int")
+        if id <= 0:
+            raise ValueError("Идентификтаор должен задаваться положительным числом")
+        self.id = id
+
         self.name = name
+
+        if not isinstance(pages, (int)):
+            raise TypeError("Кол-во страниц должны быть типа int")
+        if pages <= 0:
+            raise ValueError("Кол-во страниц должны задаваться положительным числом")
         self.pages = pages
+
 
     def __str__(self) -> str:
       return f'Книга "{self.name}"'
@@ -36,5 +56,6 @@ if __name__ == '__main__':
         print(book)  # проверяем метод __str__
 
     print(list_books)  # проверяем метод __repr__
+
 
 
